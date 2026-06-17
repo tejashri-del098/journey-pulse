@@ -56,8 +56,8 @@ function TrustGauge({ score, band, chiefConcern }) {
     <div className="bg-card-bg border border-card-border rounded-xl p-6 h-full flex flex-col">
       <h3 className="text-sm font-medium text-slate-400 mb-4">Trust & Ethics Score</h3>
       
-      <div className="flex items-center gap-6 mb-6">
-        <div className="relative w-24 h-24 flex items-center justify-center shrink-0">
+      <div className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left gap-4 xl:gap-6 mb-6">
+        <div className="relative w-20 h-20 xl:w-24 xl:h-24 flex items-center justify-center shrink-0">
           <svg className="w-full h-full -rotate-90 transform drop-shadow-md" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="45" fill="none" className="stroke-zinc-800" strokeWidth="8" />
             <circle 
@@ -68,16 +68,16 @@ function TrustGauge({ score, band, chiefConcern }) {
             />
           </svg>
           <div className="absolute flex flex-col items-center">
-            <span className="text-3xl font-display font-bold text-slate-50 drop-shadow-sm">{score}</span>
+            <span className="text-2xl xl:text-3xl font-display font-bold text-slate-50 drop-shadow-sm">{score}</span>
           </div>
         </div>
         
-        <div className="flex flex-col gap-1">
-          <div className={cn("flex items-center gap-2 font-semibold text-lg", color)}>
+        <div className="flex flex-col gap-1 items-center xl:items-start">
+          <div className={cn("flex items-center gap-2 font-semibold text-base xl:text-lg", color)}>
             <Icon size={20} />
             {band}
           </div>
-          <p className="text-sm text-slate-400">
+          <p className="text-xs xl:text-sm text-slate-400">
             {band === 'Trustworthy' ? 'Campaign is ethical and respects boundaries.' : 
              band === 'Caution' ? 'Some personas flagged minor manipulative tactics.' : 
              'High risk of trust erosion and mass unsubscribes.'}
