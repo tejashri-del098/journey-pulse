@@ -38,13 +38,13 @@ export function VariantGenerator({ campaignText, channel, segment, originalResul
     return (
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 mt-6 flex items-center justify-between">
         <div>
-          <h3 className="text-slate-200 font-medium flex items-center gap-2">
-            <Sparkles className="text-accent-amber" size={18} />
+          <h3 className="text-slate-200 font-display font-medium flex items-center gap-2">
+            <Sparkles className="text-accent-amber animate-pulse-glow" size={18} />
             Need better results?
           </h3>
           <p className="text-sm text-slate-400 mt-1">Generate ethical variants that fix the chief concern while maintaining engagement.</p>
         </div>
-        <button onClick={handleGenerate} className="bg-accent-amber/10 text-accent-amber hover:bg-accent-amber/20 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+        <button onClick={handleGenerate} className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2">
           Generate Variants
         </button>
       </div>
@@ -74,10 +74,10 @@ export function VariantGenerator({ campaignText, channel, segment, originalResul
   }
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden mt-6">
-      <div className="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/50">
-        <h3 className="text-slate-200 font-medium flex items-center gap-2">
-          <Sparkles className="text-accent-amber" size={18} />
+    <div className="bg-card-bg border border-card-border shadow-xl rounded-xl overflow-hidden mt-6">
+      <div className="p-5 border-b border-card-border flex items-center justify-between bg-zinc-950/50 backdrop-blur-sm">
+        <h3 className="text-slate-200 font-display font-medium flex items-center gap-2">
+          <Sparkles className="text-accent-amber animate-pulse-glow" size={18} />
           Variant Analysis
         </h3>
         {variantsData.improvement.trustScoreDelta > 0 && (
@@ -89,17 +89,17 @@ export function VariantGenerator({ campaignText, channel, segment, originalResul
       
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left">
-          <thead className="text-xs text-slate-400 uppercase bg-slate-900/50 border-b border-slate-800">
+          <thead className="text-xs text-slate-400 uppercase bg-zinc-950/80 border-b border-zinc-800 tracking-wider">
             <tr>
-              <th className="px-6 py-4">Strategy & Copy</th>
-              <th className="px-6 py-4">Trust Band</th>
-              <th className="px-6 py-4 whitespace-nowrap">Open / Click / Conv</th>
-              <th className="px-6 py-4 text-right">Action</th>
+              <th className="px-6 py-4 font-semibold">Strategy & Copy</th>
+              <th className="px-6 py-4 font-semibold">Trust Band</th>
+              <th className="px-6 py-4 whitespace-nowrap font-semibold">Open / Click / Conv</th>
+              <th className="px-6 py-4 text-right font-semibold">Action</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800/50">
+          <tbody className="divide-y divide-zinc-800/50">
             {variantsData.ranking.map((v, idx) => (
-              <tr key={idx} className={cn("hover:bg-slate-800/20 transition-colors", v.strategy === 'Original' ? "bg-slate-950/30" : "")}>
+              <tr key={idx} className={cn("hover:bg-zinc-800/40 transition-colors", v.strategy === 'Original' ? "bg-zinc-950/50" : "")}>
                 <td className="px-6 py-4">
                   <div className="font-medium text-slate-200 mb-1 flex items-center gap-2">
                     {v.strategy} 

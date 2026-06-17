@@ -48,10 +48,10 @@ export function JourneyView() {
       
       {/* Sidebar / Builder */}
       <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col gap-4">
+        <div className="bg-card-bg border border-card-border rounded-xl p-6 flex flex-col gap-4 shadow-xl">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-              <Route className="text-accent-blue" size={20} /> Journey Builder
+            <h2 className="text-xl font-display font-bold text-slate-100 flex items-center gap-2">
+              <Route className="text-accent-blue animate-pulse-glow rounded-full" size={20} /> Journey Builder
             </h2>
           </div>
           
@@ -103,7 +103,7 @@ export function JourneyView() {
           <button 
             disabled={loading || sequence.length === 0}
             onClick={runJourney}
-            className="mt-4 w-full bg-accent-blue hover:bg-blue-600 disabled:opacity-50 text-white font-medium py-2.5 rounded-lg transition-colors flex justify-center items-center gap-2"
+            className="mt-4 w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 disabled:from-slate-700 disabled:to-slate-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/25 text-white font-medium py-3 rounded-lg transition-all duration-300 flex justify-center items-center gap-2"
           >
             {loading ? <Loader2 size={18} className="animate-spin" /> : <Play size={18} />}
             {loading ? 'Simulating Journey...' : 'Run Journey Simulation'}
@@ -134,7 +134,7 @@ export function JourneyView() {
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col gap-6">
             
             {/* Insights Top Bar */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <div className="bg-card-bg border border-card-border rounded-xl p-6 shadow-xl">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1"><AlertTriangle size={14}/> Journey Fatigue</h3>
@@ -167,16 +167,16 @@ export function JourneyView() {
             </div>
 
             {/* Timeline */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <div className="bg-card-bg border border-card-border rounded-xl p-6 shadow-xl">
               <h3 className="text-sm font-medium text-slate-400 mb-6">Engagement Timeline</h3>
-              <div className="relative border-l-2 border-slate-800 ml-4 space-y-8">
+              <div className="relative border-l-2 border-zinc-800/80 ml-4 space-y-8">
                 {result.steps.map((step, i) => {
                   const dropOff = result.insights.dropOffRates[i];
                   return (
                     <div key={i} className="relative pl-6">
                       <div className={cn(
-                        "absolute -left-[9px] top-1 w-4 h-4 rounded-full border-2 border-slate-900",
-                        step.channel === 'email' ? 'bg-blue-500' : step.channel === 'sms' ? 'bg-green-500' : 'bg-purple-500'
+                        "absolute -left-[9px] top-1 w-4 h-4 rounded-full border-2 border-card-bg z-10",
+                        step.channel === 'email' ? 'bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]' : step.channel === 'sms' ? 'bg-green-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]' : 'bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.8)]'
                       )} />
                       
                       <div className="flex items-center gap-3 mb-2">

@@ -58,12 +58,17 @@ function TrustGauge({ score, band, chiefConcern }) {
       
       <div className="flex items-center gap-6 mb-6">
         <div className="relative w-24 h-24 flex items-center justify-center shrink-0">
-          <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="none" className="stroke-slate-800" strokeWidth="8" />
-            <circle cx="50" cy="50" r="45" fill="none" className={cn("stroke-current", color)} strokeWidth="8" strokeDasharray={`${(score / 100) * 283} 283`} strokeLinecap="round" />
+          <svg className="w-full h-full -rotate-90 transform drop-shadow-md" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" className="stroke-zinc-800" strokeWidth="8" />
+            <circle 
+              cx="50" cy="50" r="45" fill="none" 
+              className={cn("stroke-current animate-sweep", color)} 
+              strokeWidth="8" strokeDasharray="283 283" strokeLinecap="round" 
+              style={{ '--gauge-offset': 283 - (score / 100) * 283, strokeDashoffset: 283 }}
+            />
           </svg>
           <div className="absolute flex flex-col items-center">
-            <span className="text-2xl font-bold text-slate-50">{score}</span>
+            <span className="text-3xl font-display font-bold text-slate-50 drop-shadow-sm">{score}</span>
           </div>
         </div>
         
@@ -175,13 +180,13 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-dashboard-bg text-slate-200">
+    <div className="flex h-screen overflow-hidden bg-transparent text-slate-200">
       
       {/* Sidebar */}
-      <aside className="w-64 bg-sidebar-bg border-r border-sidebar-border flex flex-col">
+      <aside className="w-64 bg-zinc-950/40 backdrop-blur-2xl border-r border-sidebar-border flex flex-col relative z-10 shadow-2xl">
         <div className="p-6">
-          <div className="flex items-center gap-2 text-xl font-bold text-white tracking-tight">
-            <Activity className="text-accent-blue" />
+          <div className="flex items-center gap-2 text-2xl font-display font-bold text-white tracking-tight">
+            <Activity className="text-accent-blue animate-pulse-glow rounded-full" />
             JourneyPulse
           </div>
           <p className="text-xs text-slate-400 mt-1">Connected Campaign Simulator</p>
@@ -205,8 +210,8 @@ export default function App() {
         <div className="max-w-6xl mx-auto space-y-8">
           
           <header className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-              <LayoutDashboard className="text-accent-blue" /> 
+            <h1 className="text-3xl font-display font-bold text-white flex items-center gap-3 tracking-tight">
+              <LayoutDashboard className="text-accent-blue" size={28} /> 
               {activeTab === 'simulate' ? 'Single Campaign Simulation' : activeTab === 'journey' ? 'Connected Journey' : 'Prediction Calibration'}
             </h1>
             
@@ -263,10 +268,10 @@ export default function App() {
                   <button 
                     disabled={loading || !campaignText}
                     type="submit" 
-                    className="mt-2 w-full bg-accent-blue hover:bg-blue-600 disabled:opacity-50 disabled:hover:bg-accent-blue text-white font-medium py-2.5 rounded-lg transition-colors flex justify-center items-center gap-2"
+                    className="mt-2 w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 disabled:from-slate-700 disabled:to-slate-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/25 text-white font-medium py-3 rounded-lg transition-all duration-300 flex justify-center items-center gap-2"
                   >
                     {loading ? <Loader2 size={18} className="animate-spin" /> : <Zap size={18} />}
-                    {loading ? 'Simulating...' : 'Run Simulation'}
+                    {loading ? 'Simulating Focus Group...' : 'Run Simulation'}
                   </button>
 
                   {error && (

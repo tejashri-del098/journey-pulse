@@ -52,17 +52,18 @@ export function CalibrationView() {
       
       {/* Overview */}
       <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-          <h2 className="text-lg font-bold text-slate-100 flex items-center gap-2 mb-6">
-            <Target className="text-accent-blue" size={20} /> Model Accuracy
+        <div className="bg-card-bg border border-card-border rounded-xl p-6 shadow-xl">
+          <h2 className="text-xl font-display font-bold text-slate-100 flex items-center gap-2 mb-6">
+            <Target className="text-accent-blue animate-pulse-glow" size={24} /> Model Accuracy
           </h2>
           
-          <div className="flex flex-col items-center justify-center py-6">
-            <div className="text-6xl font-bold text-white mb-2">{latest.accuracyScore}%</div>
-            <div className="text-sm text-slate-400 font-medium">Current Accuracy Score</div>
+          <div className="flex flex-col items-center justify-center py-6 relative">
+            <div className="absolute inset-0 bg-blue-500/5 rounded-full blur-3xl" />
+            <div className="text-7xl font-display font-bold text-white mb-2 drop-shadow-lg relative">{latest.accuracyScore}%</div>
+            <div className="text-sm text-slate-400 font-medium relative">Current Accuracy Score</div>
           </div>
           
-          <div className="bg-slate-950 p-4 rounded-lg mt-4 border border-slate-800">
+          <div className="bg-zinc-950/80 p-4 rounded-lg mt-4 border border-zinc-800/80 shadow-inner">
             <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Mean Absolute Error</div>
             <div className="text-2xl font-bold text-slate-200">{latest.mae} <span className="text-sm font-normal text-slate-500">pts</span></div>
           </div>
@@ -77,7 +78,7 @@ export function CalibrationView() {
 
       {/* History List */}
       <div className="col-span-12 lg:col-span-8">
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <div className="bg-card-bg border border-card-border rounded-xl p-6 shadow-xl">
           <h3 className="text-sm font-medium text-slate-400 mb-6">Calibration History</h3>
           
           <div className="space-y-4">
@@ -87,12 +88,12 @@ export function CalibrationView() {
               let trendIcon = <Minus size={16} className="text-slate-500" />;
               
               if (prevRun) {
-                if (run.accuracyScore > prevRun.accuracyScore) trendIcon = <TrendingUp size={16} className="text-emerald-500" />;
-                if (run.accuracyScore < prevRun.accuracyScore) trendIcon = <TrendingDown size={16} className="text-red-500" />;
+                if (run.accuracyScore > prevRun.accuracyScore) trendIcon = <TrendingUp size={16} className="text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />;
+                if (run.accuracyScore < prevRun.accuracyScore) trendIcon = <TrendingDown size={16} className="text-red-400 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" />;
               }
 
               return (
-                <div key={run.id} className={cn("p-4 rounded-lg border", isFirst ? "bg-slate-950/80 border-slate-700" : "bg-slate-950/40 border-slate-800/50")}>
+                <div key={run.id} className={cn("p-4 rounded-lg border transition-all duration-300 hover:shadow-lg", isFirst ? "bg-zinc-900/80 border-zinc-700 shadow-md" : "bg-zinc-950/40 border-zinc-800/50 hover:bg-zinc-900/60")}>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex flex-col">
                       <span className="font-bold text-slate-200">{run.campaignName}</span>
