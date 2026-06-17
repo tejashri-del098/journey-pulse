@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sidebar-bg: #0f172a; /* slate-900 */
+  --color-sidebar-border: #1e293b; /* slate-800 */
+  --color-dashboard-bg: #020617; /* slate-950 */
+  --color-card-bg: #0f172a; /* slate-900 */
+  --color-card-border: #1e293b; /* slate-800 */
+  
+  --color-accent-blue: #3b82f6; /* blue-500 */
+  --color-accent-green: #10b981; /* emerald-500 */
+  --color-accent-amber: #f59e0b; /* amber-500 */
+  --color-accent-red: #ef4444; /* red-500 */
+}
+
+body {
+  background-color: var(--color-dashboard-bg);
+  color: #f8fafc; /* slate-50 */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+}

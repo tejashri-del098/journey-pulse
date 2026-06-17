@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cal_1781683544837",
+    "timestamp": "2026-06-17T08:05:44.837Z",
+    "campaignName": "Spring Sale 2025",
+    "predicted": {
+      "predictedOpenRate": 25.5,
+      "predictedClickRate": 10.2,
+      "predictedConversionRate": 3.1,
+      "predictedUnsubscribeRate": 1.5
+    },
+    "actual": {
+      "actualOpenRate": 22,
+      "actualClickRate": 11.5,
+      "actualConversionRate": 2.8,
+      "actualUnsubscribeRate": 1.8
+    },
+    "mae": 1.4,
+    "accuracyScore": 93,
+    "divergenceFlag": null
+  },
+  {
+    "id": "cal_1781683544838",
+    "timestamp": "2026-06-17T08:05:44.838Z",
+    "campaignName": "Summer Promo",
+    "predicted": {
+      "predictedOpenRate": 25.5,
+      "predictedClickRate": 10.2,
+      "predictedConversionRate": 3.1,
+      "predictedUnsubscribeRate": 1.5
+    },
+    "actual": {
+      "actualOpenRate": 25,
+      "actualClickRate": 10,
+      "actualConversionRate": 3,
+      "actualUnsubscribeRate": 1.4
+    },
+    "mae": 0.2,
+    "accuracyScore": 99,
+    "divergenceFlag": null
+  }
+]

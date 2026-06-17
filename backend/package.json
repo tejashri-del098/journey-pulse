@@ -1,0 +1,22 @@
+{
+  "name": "journey-pulse-backend",
+  "version": "1.0.0",
+  "description": "JourneyPulse - AI-powered connected campaign journey simulator",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "generate-personas": "node src/scripts/generatePersonas.js",
+    "test-campaigns": "node src/scripts/testCampaigns.js",
+    "test-journey": "node src/scripts/testJourney.js",
+    "test-calibration": "node src/scripts/testCalibration.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.0",
+    "lru-cache": "^11.0.0"
+  }
+}
